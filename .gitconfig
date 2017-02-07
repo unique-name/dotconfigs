@@ -1,0 +1,46 @@
+[user]
+	name = Sergey Buloshnikov
+	email = sergeyx.buloshnikov@intel.com
+
+[color]
+	ui = auto
+
+[core]
+	editor = vim
+	whitespace = fix,-indent-with-non-tab,trailing-space,cr-at-eol
+
+[push]
+	default = matching
+
+[diff]
+	tool = vimdiff
+
+[difftool]
+	prompt = false
+
+[merge]
+	tool = vimdiff
+	conflictstyle = diff3
+
+[mergetool]
+	prompt = false
+
+[alias]
+	lg1 = log --graph --abbrev-commit --decorate --date=relative --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)' --all
+	lg2 = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n''          %C(white)%s%C(reset) %C(dim white)- %an%C(reset)' --all
+	s = status -s --untracked-files=no --ignore-submodules=all
+	a = add
+	c = commit -sm
+	d = diff
+	dc = diff --cached
+
+	#ours = "!f() { git checkout --ours $@ && git add $@; }; f"
+	#theirs = "!f() { git checkout --theirs $@ && git add $@; }; f"
+	#subpull = !git submodule foreach git pull --tags origin master
+	hist = log --pretty=format:'%C(yellow)[%ad]%C(reset) %C(green)[%h]%C(reset) | %C(white)%s %C(red){%an}%C(reset) %C(blue)%d%C(reset)' --graph --date=short
+ 
+[include]
+	path = .gitconfig.local
+
+[review "https://git-amr-3.devtools.intel.com/gerrit"]
+	username = sbuloshx

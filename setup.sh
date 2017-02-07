@@ -9,7 +9,7 @@ sudo apt-get update
 
 dir=$PWD
 #list of files to make symlink to them:
-files=".bash_aliases"
+files=".bash_aliases .gitconfig .vimrc"
 
 
 for file in $files; do

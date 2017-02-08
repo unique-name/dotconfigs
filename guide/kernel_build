@@ -1,0 +1,19 @@
+1. Create config based on current config in system and loaded modules
+make localmodconfig
+
+2. Customize and compile Kernel
+make menuconfig
+make -j4
+
+3. Install Kernel modules
+sudo make modules install
+
+4. Install Kernel
+sudo make install
+
+5. Create initramfs file in order to correct mount of filesystem and prepare boot-loader
+ll /boot	-	find the proper kernel version name from list of images
+sudo update-initramfs -c -k <Kernel version name>	-	flags: -c create -u update -k kernel version
+
+6. Update GRUB
+sudo update-grub

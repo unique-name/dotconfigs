@@ -1,0 +1,42 @@
+U-boot commands for loading kernel and device tree
+------------------------------------------------
+fatload mmc 0:1 0x11000000 /imx6q-nitrogen6x.dtb
+fatload mmc 0:1 0x10800000 /uImage-signed.bin
+bootm 0x10800000 - 0x11000000
+
+
+dd command
+-----------
+dd if=/dev/urandom | pv | sudo dd of=/dev/sdb bs=1M
+
+gstreamer:
+----------
+gst-launch mfw_v4lsrc ! mfw_v4lsink
+gst-launch mfw_v4lsrc device=/dev/video0 ! ffenc_mpeg4 ! rtpmp4vpay send-config=true ! udpsink host=192.168.42.63 port=5000
+gst-launch-1.0 videotestsrc pattern=1 ! mfw_v4lsink
+
+
+Building Yocto
+--------------
+repo init -u git://git.freescale.com/imx/fsl-arm-yocto-bsp.git -b imx-3.14.52-1.1.0_ga			(imx-4.1.15-1.0.0_ga)
+repo sync
+MACHINE=imx6ulevk source fsl-setup-release.sh -b build -e x11
+bitbake core-image-base
+cd ./tmp/deploy/images/imx6ulevk	-	core-image-base-imx6ulevk.sdcard
+./sources/meta-fsl-bsp-release/imx/meta-bsp/recipes-kernel/linux	-	bb files of linux kernel
+./build/tmp/work-shared/imx6ulevk/kernel-source		-	sources of Kernel
+./build/tmp/work/imx6ulevk-poky-linux-gnueabi/linux-imx/4.1.15-r0/build/arch/arm/boot	-	images of Kernel
+
+in local.conf :
+IMAGE_INSTALL ?= " ssh-server-openssh  dhcp-client"
+IMAGE_INSTALL_append = "strace"
+
+
+TEMP CHANGES
+-------------------------------------------------------------------
+sshpass -p "z00look!" ssh llt_lab@10.185.221.85
+ssh root@192.168.0.2
+
+
+
+

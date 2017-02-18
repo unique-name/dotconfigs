@@ -1,6 +1,7 @@
 set number
 set noswapfile
-colorscheme monokai
+"define colorscheme: monokai wombat256
+colorscheme wombat256 
 set autoindent
 "set ruler	 	" shows line number in the status line	 
 set wildmenu		" better command line completion, shows a list of matches
@@ -36,3 +37,4 @@ let NERDTreeIgnore+=['.*\.d$']
 let NERDTreeIgnore+=['.*\~$']
 let NERDTreeIgnore+=['.*\.out$']
 let NERDTreeIgnore+=['.*\.so$', '.*\.a$']
+

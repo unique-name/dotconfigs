@@ -17,7 +17,6 @@ set rtp+=~/.vim/bundle/vundle/
 call vundle#begin()
 
 Plugin 'scrooloose/nerdtree.git'
-Plugin 'Valloric/YouCompleteMe'
 
 "all plugins must be added before this line
 call vundle#end() 

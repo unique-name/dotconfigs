@@ -8,14 +8,14 @@
 " inspired by David Liang's version (bmdavll@gmail.com)
 
 set background=dark
-
-hi clear
+highlight clear
 
 if exists("syntax_on")
 	syntax reset
 endif
 
-let colors_name = "wombat256"
+set t_Co=256
+let g:colors_name = "wombat256"
 
 
 " General colors

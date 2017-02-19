@@ -37,6 +37,5 @@ TEMP CHANGES
 sshpass -p "z00look!" ssh llt_lab@10.185.221.85
 ssh root@192.168.0.2
 
-
-
+git show --name-only 32a6760..HEAD
 

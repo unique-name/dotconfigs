@@ -2,10 +2,11 @@ set number
 set noswapfile
 "define colorscheme: monokai wombat256
 colorscheme wombat256 
-set autoindent
-"set ruler	 	" shows line number in the status line	 
+filetype plugin indent on
+set tabstop=4       " show existing tab measured in spaces 
+set shiftwidth=4    " the size of an indent 
+set expandtab       " insert spaces instead of tab characters
 set wildmenu		" better command line completion, shows a list of matches
-set showcmd 
 set showmatch
 set matchtime=5
 set nocompatible	"need for plugins supporting 

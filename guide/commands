@@ -34,8 +34,9 @@ IMAGE_INSTALL_append = "strace"
 
 TEMP CHANGES
 -------------------------------------------------------------------
-sshpass -p "z00look!" ssh llt_lab@10.185.221.85
-ssh root@192.168.0.2
+remote.origin.url=https://unique-name:strunner1@github.com/unique-name/dotconfigs.git
 
-git show --name-only 32a6760..HEAD
 
+
+export CROSS_COMPILE=/home/serge/intel-sdk/sdk/coh/toolchain/arc_gnu_2015.06_prebuilt_uclibc_le_archs_linux_install/bin/arc-linux-uclibc-
+export ARCH=arc

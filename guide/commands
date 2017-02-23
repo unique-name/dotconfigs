@@ -4,10 +4,19 @@ fatload mmc 0:1 0x11000000 /imx6q-nitrogen6x.dtb
 fatload mmc 0:1 0x10800000 /uImage-signed.bin
 bootm 0x10800000 - 0x11000000
 
+mmc rescan
+ext2ls  mmc 0 
+ext2load mmc 0 0xb0000000 uImage.gz
+ext2load mmc 0 0xa0000000 coh_rd_ext3.dtb
+bootm 0xb0000000 - 0xa0000000
+ext2ls  mmc 0 
+covehill.phys_mem.x 0xb0000000 0x250
+
 
 dd command
 -----------
 dd if=/dev/urandom | pv | sudo dd of=/dev/sdb bs=1M
+
 
 gstreamer:
 ----------

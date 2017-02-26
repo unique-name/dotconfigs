@@ -38,6 +38,6 @@
 [review "https://git-amr-3.devtools.intel.com/gerrit"]
     username = sbuloshx
 
-[remote "origin"]
-    url = https://unique-name@github.com/unique-name/dotconfigs.git
+#[remote "origin"]
+#    url = https://unique-name@github.com/unique-name/dotconfigs.git
 

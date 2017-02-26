@@ -1,5 +1,7 @@
 1. Create config based on current config in system and loaded modules
 make localmodconfig
+or copy from:
+cp /boot/config-$(uname -r) .config
 
 2. Customize and compile Kernel
 make menuconfig

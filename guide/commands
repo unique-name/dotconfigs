@@ -43,8 +43,3 @@ IMAGE_INSTALL_append = "strace"
 
 TEMP CHANGES
 -------------------------------------------------------------------
-remote.origin.url https://unique-name:strunner1@github.com/unique-name/dotconfigs.git
-
-
-export CROSS_COMPILE=/home/serge/intel-sdk/sdk/coh/toolchain/arc_gnu_2015.06_prebuilt_uclibc_le_archs_linux_install/bin/arc-linux-uclibc-
-export ARCH=arc

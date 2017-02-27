@@ -11,6 +11,7 @@ make -j4
 sudo make modules_install
 
 4. Install Kernel
+sudo make headers_install
 sudo make install
 
 5. Create initramfs file in order to correct mount of filesystem and prepare boot-loader

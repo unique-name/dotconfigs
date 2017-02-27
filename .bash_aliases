@@ -1,3 +1,4 @@
 alias f='find . -name'
 alias cd..='cd ..'
-alias off='sudo shutdown -h now'
+alias off='shutdown -h now'
+alias res='shutdown -r now'

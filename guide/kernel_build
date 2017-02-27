@@ -8,7 +8,7 @@ make menuconfig
 make -j4
 
 3. Install Kernel modules
-sudo make modules install
+sudo make modules_install
 
 4. Install Kernel
 sudo make install

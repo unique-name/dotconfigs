@@ -11,6 +11,8 @@ ext2load mmc 0 0xa0000000 coh_rd_ext3.dtb
 bootm 0xb0000000 - 0xa0000000
 ext2ls  mmc 0 
 covehill.phys_mem.x 0xb0000000 0x250
+covehill.sd.log-level 4
+covehill.sd_card.card.log-level 4
 
 
 dd command
@@ -43,3 +45,5 @@ IMAGE_INSTALL_append = "strace"
 
 TEMP CHANGES
 -------------------------------------------------------------------
+
+edc4570

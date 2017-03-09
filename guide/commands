@@ -9,8 +9,12 @@ ext2ls  mmc 0
 ext2load mmc 0 0xb0000000 uImage.gz
 ext2load mmc 0 0xa0000000 coh_rd_ext3.dtb
 bootm 0xb0000000 - 0xa0000000
-ext2ls  mmc 0 
-covehill.phys_mem.x 0xb0000000 0x250
+
+ext2load mmc 0 0xb0000000 hex_pattern2
+mmc read 0x10000000 0x2a3 0x3
+mmc read 0x10000000 0x403 0x3
+
+covehill.phys_mem.x 0x10000000 0x500
 covehill.sd.log-level 4
 covehill.sd_card.card.log-level 4
 
@@ -43,7 +47,22 @@ IMAGE_INSTALL ?= " ssh-server-openssh  dhcp-client"
 IMAGE_INSTALL_append = "strace"
 
 
+Disable auto-opening nautilus window after auto-mount
+-------------------------------------------------------
+gsettings set org.gnome.desktop.media-handling automount-open false
+
+
 TEMP CHANGES
 -------------------------------------------------------------------
+./mksd.sh -k ~/Downloads/hex_pattern2 -s 20
 
-edc4570
+
+
+
+
+
+
+
+
+
+

@@ -5,16 +5,16 @@ fatload mmc 0:1 0x10800000 /uImage-signed.bin
 bootm 0x10800000 - 0x11000000
 
 mmc rescan
-ext2ls  mmc 0 
+ext2ls mmc 0 
 ext2load mmc 0 0xb0000000 uImage.gz
 ext2load mmc 0 0xa0000000 coh_rd_ext3.dtb
 bootm 0xb0000000 - 0xa0000000
 
-ext2load mmc 0 0xb0000000 hex_pattern2
+ext2load mmc 0 0x10000000 hex_pattern2
 mmc read 0x10000000 0x2a3 0x3
 mmc read 0x10000000 0x403 0x3
 
-covehill.phys_mem.x 0x10000000 0x500
+covehill.phys_mem.x 0x10000000 0x1000
 covehill.sd.log-level 4
 covehill.sd_card.card.log-level 4
 
@@ -50,11 +50,65 @@ IMAGE_INSTALL_append = "strace"
 Disable auto-opening nautilus window after auto-mount
 -------------------------------------------------------
 gsettings set org.gnome.desktop.media-handling automount-open false
+coh-sdhci
+
+CONFIG_MMC_SDHCI=y
+CONFIG_MMC_SDHCI_PLTFM=y
+CONFIG_MMC_SDHCI_COH=y
+
+
 
 
 TEMP CHANGES
 -------------------------------------------------------------------
+git show --name-only 072665c..HEAD
+
 ./mksd.sh -k ~/Downloads/hex_pattern2 -s 20
+
+sudo dd if=/dev/zero of=~/intel-sdk/sdk/coh/binaries/sd.img bs=1M count=400
+
+sudo sfdisk -uM ~/intel-sdk/sdk/coh/binaries/sd.img << EOF
+,7
+;
+EOF
+
+sudo losetup -o 512 /dev/loop1 ~/intel-sdk/sdk/coh/binaries/sd.img
+sudo losetup -o 8225280 /dev/loop2 ~/intel-sdk/sdk/coh/binaries/sd.img
+
+sudo mkfs.ext2 /dev/loop1
+sudo mkfs.ext3 /dev/loop2
+
+sudo mount /dev/loop1 /home/serge/work/mnt-dir
+sudo mount /dev/loop2 /home/serge/work/mnt-dir
+
+sudo tar -xf /home/serge/work/rootfs.tar.gz -C /home/serge/work/mnt-dir
+
+sudo parted ~/intel-sdk/sdk/coh/binaries/sd.img unit s print
+
+sudo losetup -d /dev/loop1
+sudo losetup -d /dev/loop2
+
+sudo umount /home/serge/work/mnt-dir
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

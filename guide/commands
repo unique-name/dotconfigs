@@ -50,48 +50,42 @@ IMAGE_INSTALL_append = "strace"
 Disable auto-opening nautilus window after auto-mount
 -------------------------------------------------------
 gsettings set org.gnome.desktop.media-handling automount-open false
-coh-sdhci
-
-CONFIG_MMC_SDHCI=y
-CONFIG_MMC_SDHCI_PLTFM=y
-CONFIG_MMC_SDHCI_COH=y
-
-
 
 
 TEMP CHANGES
 -------------------------------------------------------------------
-git show --name-only 072665c..HEAD
+ssh lab_cvgv@cvg-sv-h064.iil.intel.com
+SVcore2@
+cd ~/coh_sw-farm_tools
+
+repo init -u ssh://git-ger-8.devtools.intel.com:29418/cvg_sw-cvg_sw-cvg_manifest -b master -m coh-sdk-devel.xml
+repo init -u ssh://git-ger-8.devtools.intel.com:29418/cvg_sw-cvg_sw-cvg_manifest -m coh-sdk-devel.xml -b coh_sdk_0.8_po
 
 ./mksd.sh -k ~/Downloads/hex_pattern2 -s 20
+sudo dd if=/dev/zero of=~/intel-po/sdk/coh/binaries/sd.img bs=1M count=400
 
-sudo dd if=/dev/zero of=~/intel-sdk/sdk/coh/binaries/sd.img bs=1M count=400
-
-sudo sfdisk -uM ~/intel-sdk/sdk/coh/binaries/sd.img << EOF
+sudo sfdisk -uM ~/intel-po/sdk/coh/binaries/sd.img << EOF
 ,7
 ;
 EOF
 
-sudo losetup -o 512 /dev/loop1 ~/intel-sdk/sdk/coh/binaries/sd.img
-sudo losetup -o 8225280 /dev/loop2 ~/intel-sdk/sdk/coh/binaries/sd.img
-
+sudo losetup -o 512 /dev/loop1 ~/intel-po/sdk/coh/binaries/sd.img
+sudo losetup -o 8225280 /dev/loop2 ~/intel-po/sdk/coh/binaries/sd.img
 sudo mkfs.ext2 /dev/loop1
 sudo mkfs.ext3 /dev/loop2
-
 sudo mount /dev/loop1 /home/serge/work/mnt-dir
 sudo mount /dev/loop2 /home/serge/work/mnt-dir
 
 sudo tar -xf /home/serge/work/rootfs.tar.gz -C /home/serge/work/mnt-dir
-
 sudo parted ~/intel-sdk/sdk/coh/binaries/sd.img unit s print
-
 sudo losetup -d /dev/loop1
 sudo losetup -d /dev/loop2
-
 sudo umount /home/serge/work/mnt-dir
 
 
-
+SDHCI_POWER_330    0x0E
+#define SDHCI_POWER_CONTROL 0x29
+SDHCI_QUIRK_WAIT_SEND_CMD
 
 
 

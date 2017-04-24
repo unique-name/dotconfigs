@@ -56,15 +56,22 @@ TEMP CHANGES
 -------------------------------------------------------------------
 ssh lab_cvgv@cvg-sv-h064.iil.intel.com
 SVcore2@
-cd ~/coh_sw-farm_tools
+cd ~/coh_sw-farm_tools/power_ctl
 
+cd /home/serge/intel-sdk/sdk/host/tools/boardcmd
+sudo rmmod cp210x
+sudo insmod /home/serge/intel-sdk/sdk/host/tools/boardcmd/Sillab/cp210x.ko
+ssh serge@192.168.6.236
+
+
+repo forall -vc "git reset --hard; git clean -df"
 repo init -u ssh://git-ger-8.devtools.intel.com:29418/cvg_sw-cvg_sw-cvg_manifest -b master -m coh-sdk-devel.xml
 repo init -u ssh://git-ger-8.devtools.intel.com:29418/cvg_sw-cvg_sw-cvg_manifest -m coh-sdk-devel.xml -b coh_sdk_0.8_po
 
-./mksd.sh -k ~/Downloads/hex_pattern2 -s 20
+
 sudo dd if=/dev/zero of=~/intel-po/sdk/coh/binaries/sd.img bs=1M count=400
 
-sudo sfdisk -uM ~/intel-po/sdk/coh/binaries/sd.img << EOF
+sudo sfdisk -uM ~/intel-po/sdk/coh/binaries/sd.img 2>/dev/null << EOF
 ,7
 ;
 EOF
@@ -81,13 +88,6 @@ sudo parted ~/intel-sdk/sdk/coh/binaries/sd.img unit s print
 sudo losetup -d /dev/loop1
 sudo losetup -d /dev/loop2
 sudo umount /home/serge/work/mnt-dir
-
-
-SDHCI_POWER_330    0x0E
-#define SDHCI_POWER_CONTROL 0x29
-SDHCI_QUIRK_WAIT_SEND_CMD
-
-
 
 
 

@@ -5,7 +5,7 @@ colorscheme wombat256
 filetype plugin indent on
 set tabstop=4       " show existing tab measured in spaces 
 set shiftwidth=4    " the size of an indent 
-set expandtab       " insert spaces instead of tab characters
+"set expandtab       " insert spaces instead of tab characters
 set wildmenu		" better command line completion, shows a list of matches
 set showmatch
 set matchtime=5

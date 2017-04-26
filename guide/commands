@@ -7,8 +7,8 @@ bootm 0x10800000 - 0x11000000
 mmc rescan
 ext2ls mmc 0 
 ext2load mmc 0 0xb0000000 uImage.gz
-ext2load mmc 0 0xa0000000 coh_rd_ext3.dtb
-bootm 0xb0000000 - 0xa0000000
+ext2load mmc 0 0xb0600000 coh_rd_ext3.dtb
+bootm 0xb0000000 - 0xb0600000
 
 ext2load mmc 0 0x10000000 hex_pattern2
 mmc read 0x10000000 0x2a3 0x3
@@ -52,6 +52,14 @@ Disable auto-opening nautilus window after auto-mount
 gsettings set org.gnome.desktop.media-handling automount-open false
 
 
+repo cleanup script
+-------------------
+repo forall -p -c 'git clean -fxd'
+repo forall -p -c 'git reset --hard'
+or this:
+repo forall -vc "git reset --hard; git clean -df"
+
+
 TEMP CHANGES
 -------------------------------------------------------------------
 ssh lab_cvgv@cvg-sv-h064.iil.intel.com
@@ -63,8 +71,6 @@ sudo rmmod cp210x
 sudo insmod /home/serge/intel-sdk/sdk/host/tools/boardcmd/Sillab/cp210x.ko
 ssh serge@192.168.6.236
 
-
-repo forall -vc "git reset --hard; git clean -df"
 repo init -u ssh://git-ger-8.devtools.intel.com:29418/cvg_sw-cvg_sw-cvg_manifest -b master -m coh-sdk-devel.xml
 repo init -u ssh://git-ger-8.devtools.intel.com:29418/cvg_sw-cvg_sw-cvg_manifest -m coh-sdk-devel.xml -b coh_sdk_0.8_po
 

@@ -10,13 +10,12 @@ ext2load mmc 0 0xb0000000 uImage.gz
 ext2load mmc 0 0xb0600000 coh_rd_ext3.dtb
 bootm 0xb0000000 - 0xb0600000
 
-ext2load mmc 0 0x10000000 hex_pattern2
-mmc read 0x10000000 0x2a3 0x3
-mmc read 0x10000000 0x403 0x3
+ext2load mmc 0 0xb0000000 uImage.gz; ext2load mmc 0 0xb0600000 coh_rd_ext3.dtb; bootm 0xb0000000 - 0xb0600000
+setenv ipaddr 192.168.6.94; setenv serverip 192.168.6.100; tftpboot 0x80000000 flash_jffs2.bin
+sf update 0x80000000 0 0x10000000
 
-covehill.phys_mem.x 0x10000000 0x1000
-covehill.sd.log-level 4
-covehill.sd_card.card.log-level 4
+tftpboot 0x80000000 u-boot.bin
+bootcmd=detectboot; run detected_boot
 
 
 dd command
@@ -60,21 +59,8 @@ or this:
 repo forall -vc "git reset --hard; git clean -df"
 
 
-TEMP CHANGES
--------------------------------------------------------------------
-ssh lab_cvgv@cvg-sv-h064.iil.intel.com
-SVcore2@
-cd ~/coh_sw-farm_tools/power_ctl
-
-cd /home/serge/intel-sdk/sdk/host/tools/boardcmd
-sudo rmmod cp210x
-sudo insmod /home/serge/intel-sdk/sdk/host/tools/boardcmd/Sillab/cp210x.ko
-ssh serge@192.168.6.236
-
-repo init -u ssh://git-ger-8.devtools.intel.com:29418/cvg_sw-cvg_sw-cvg_manifest -b master -m coh-sdk-devel.xml
-repo init -u ssh://git-ger-8.devtools.intel.com:29418/cvg_sw-cvg_sw-cvg_manifest -m coh-sdk-devel.xml -b coh_sdk_0.8_po
-
-
+WORKING WITH SD PARTITIONS
+--------------------------
 sudo dd if=/dev/zero of=~/intel-po/sdk/coh/binaries/sd.img bs=1M count=400
 
 sudo sfdisk -uM ~/intel-po/sdk/coh/binaries/sd.img 2>/dev/null << EOF
@@ -96,7 +82,16 @@ sudo losetup -d /dev/loop2
 sudo umount /home/serge/work/mnt-dir
 
 
+TEMP CHANGES
+-------------------------------------------------------------------
+ssh lab_cvgv@cvg-sv-h064.iil.intel.com
+SVcore2@
+cd ~/coh_sw-farm_tools/power_ctl
 
+sshpass -p "123" ssh -o "StrictHostKeyChecking no" -t serge@192.168.6.236 sudo reboot
+
+repo init -u ssh://git-ger-8.devtools.intel.com:29418/cvg_sw-cvg_sw-cvg_manifest -b master -m coh-sdk-devel.xml
+repo init -u ssh://git-ger-8.devtools.intel.com:29418/cvg_sw-cvg_sw-cvg_manifest -m coh-sdk-devel.xml -b coh_sdk_0.8_po
 
 
 

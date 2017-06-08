@@ -3,12 +3,14 @@ set noswapfile
 "define colorscheme: monokai wombat256
 colorscheme wombat256 
 filetype plugin indent on
-set tabstop=4       " show existing tab measured in spaces 
-set shiftwidth=4    " the size of an indent 
-"set expandtab       " insert spaces instead of tab characters
-set wildmenu		" better command line completion, shows a list of matches
-set showmatch
-set matchtime=5
+set tabstop=8       "show existing tab measured in spaces 
+set softtabstop=8	"default tab stop size for editing files with other tabs value
+set shiftwidth=8    "the size of an indent 
+"set expandtab       "insert spaces instead of tab characters
+set noexpandtab		"no spaces instead tabs
+set wildmenu		"better command line completion, shows a list of matches
+set showmatch		"?need to check
+set matchtime=5		"?need to check
 set nocompatible	"need for plugins supporting 
 
 "turning off before plugins installation

@@ -166,6 +166,7 @@ exec --no-startup-id "setxkbmap -option grp:switch,grp:alt_shift_toggle us,il,ru
 
 for_window [instance="thunar"] floating enable
 for_window [instance="gparted"] floating enable
+for_window [instance="unity-control-center"] floating enable
 
 # Pulse Audio controls
 #bindsym $mod+Mod1+Up exec --no-startup-id pactl set-sink-volume 0 +5% #increase sound volume

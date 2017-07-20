@@ -35,10 +35,11 @@ Building Yocto
 repo init -u git://git.freescale.com/imx/fsl-arm-yocto-bsp.git -b imx-3.14.52-1.1.0_ga			(imx-4.1.15-1.0.0_ga)
 repo sync
 MACHINE=imx6ulevk source fsl-setup-release.sh -b build -e x11
+source sources/poky/oe‐init‐build‐env
 bitbake core-image-base
-cd ./tmp/deploy/images/imx6ulevk	-	core-image-base-imx6ulevk.sdcard
-./sources/meta-fsl-bsp-release/imx/meta-bsp/recipes-kernel/linux	-	bb files of linux kernel
-./build/tmp/work-shared/imx6ulevk/kernel-source		-	sources of Kernel
+cd ./tmp/deploy/images/imx6ulevk						-	core-image-base-imx6ulevk.sdcard
+./sources/meta-fsl-bsp-release/imx/meta-bsp/recipes-kernel/linux		-	bb files of linux kernel
+./build/tmp/work-shared/imx6ulevk/kernel-source					-	sources of Kernel
 ./build/tmp/work/imx6ulevk-poky-linux-gnueabi/linux-imx/4.1.15-r0/build/arch/arm/boot	-	images of Kernel
 
 in local.conf :
@@ -80,6 +81,24 @@ sudo parted ~/intel-sdk/sdk/coh/binaries/sd.img unit s print
 sudo losetup -d /dev/loop1
 sudo losetup -d /dev/loop2
 sudo umount /home/serge/work/mnt-dir
+
+
+JFFS2 Filesystem Support
+------------------------
+Erase the flash to mount JFFS2 filesystem:
+flash_eraseall -j /dev/mtd0
+
+Mount the serial flash:
+$mount -t jffs2 /dev/mtdblock01 /mnt/nor
+
+Create a new file:
+$echo NewFileCreated > /mnt/nor/testfile.txt
+
+Read the file:
+$cat /mnt/nor/testfile.txt
+
+Delete the file:
+$rm /mnt/nor/testfile.txt
 
 
 TEMP CHANGES

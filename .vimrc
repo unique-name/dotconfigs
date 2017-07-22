@@ -9,6 +9,11 @@ set shiftwidth=8    "the size of an indent
 "set expandtab       "insert spaces instead of tab characters
 set noexpandtab		"no spaces instead tabs
 set wildmenu		"better command line completion, shows a list of matches
+set laststatus=2
+set t_Co=256
+set term=xterm-256color
+set termencoding=utf-8
+set guifont=Ubuntu\ Mono\ derivative\ Powerline:10
 set showmatch		"?need to check
 set matchtime=5		"?need to check
 set nocompatible	"need for plugins supporting 
@@ -21,6 +26,7 @@ set rtp+=~/.vim/bundle/vundle/
 call vundle#begin()
 
 Plugin 'scrooloose/nerdtree.git'
+Plugin 'powerline/powerline.git'
 
 "all plugins must be added before this line
 call vundle#end() 

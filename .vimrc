@@ -1,21 +1,16 @@
 set number
 set noswapfile
-"define colorscheme: monokai wombat256
+"choose one of the following colorschemes: monokai wombat256
 colorscheme wombat256 
 filetype plugin indent on
-set tabstop=8       "show existing tab measured in spaces 
+set tabstop=8		"show existing tab measured in spaces 
 set softtabstop=8	"default tab stop size for editing files with other tabs value
-set shiftwidth=8    "the size of an indent 
-"set expandtab       "insert spaces instead of tab characters
+set shiftwidth=8	"the size of an indent 
 set noexpandtab		"no spaces instead tabs
 set wildmenu		"better command line completion, shows a list of matches
-set laststatus=2
-set t_Co=256
-set term=xterm-256color
-set termencoding=utf-8
-set guifont=Ubuntu\ Mono\ derivative\ Powerline:10
-set showmatch		"?need to check
-set matchtime=5		"?need to check
+set laststatus=2	"powerline
+set t_Co=256		"powerline
+set showmatch		"show mutching brackets
 set nocompatible	"need for plugins supporting 
 
 "turning off before plugins installation
@@ -46,4 +41,5 @@ let NERDTreeIgnore+=['.*\.d$']
 let NERDTreeIgnore+=['.*\~$']
 let NERDTreeIgnore+=['.*\.out$']
 let NERDTreeIgnore+=['.*\.so$', '.*\.a$']
-
+"Need for powerline
+set rtp+=$HOME/.local/lib/python2.7/site-packages/powerline/bindings/vim/

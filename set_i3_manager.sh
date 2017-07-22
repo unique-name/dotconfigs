@@ -1,5 +1,6 @@
 #!/bin/bash
 
+sudo apt-get install volumeicon-alsa
 dir=$PWD
 
 if [ ! -d "~/.config/i3" ]; then
@@ -13,7 +14,8 @@ if [ ! -d "~/.config/i3status" ]; then
 fi
 
 if [ ! -f "/etc/X11/Xsession.d/45xrandr-settings_for-i3wm" ]; then
-	sudo cp $dir/45xrandr-settings_for-i3wm /etc/X11/Xsession.d/
+	echo todo
+	#sudo cp $dir/45xrandr-settings_for-i3wm /etc/X11/Xsession.d/
 fi
 
 echo "Finished"

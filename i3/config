@@ -150,8 +150,6 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
-exec --no-startup-id "xrandr --output eDP-1 --off"
-# Start i3bar to display a workspace bar and system information i3status
 bar {
         status_command i3status
         tray_output primary
@@ -159,24 +157,23 @@ bar {
 
 # Network Manager
 exec --no-startup-id nm-applet
+exec --no-startup-id volumeicon
 
 # Language
-#exec --no-startup-id "setxkbmap -option grp:switch,grp:alt_shift_toggle,grp_led:scroll us,il,ru"
 exec --no-startup-id "setxkbmap -option grp:switch,grp:alt_shift_toggle us,il,ru"
 
 for_window [instance="thunar"] floating enable
 for_window [instance="gparted"] floating enable
+for_window [instance="nautilus"] floating enable
 for_window [instance="unity-control-center"] floating enable
 
 # Pulse Audio controls
 #bindsym $mod+Mod1+Up exec --no-startup-id pactl set-sink-volume 0 +5% #increase sound volume
 #bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5% #decrease sound volume
 #bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle # mute sound
-# bindsym XF86AudioRaiseVolume exec "amixer -q sset Master,0 1+ unmute"
-# bindsym XF86AudioLowerVolume exec "amixer -q sset Master,0 1- unmute"
-# bindsym XF86AudioMute exec "amixer -q sset Master,0 toggle"
+bindsym XF86AudioRaiseVolume exec "amixer -q sset Master,0 1+ unmute"
+bindsym XF86AudioLowerVolume exec "amixer -q sset Master,0 1- unmute"
+bindsym XF86AudioMute exec "amixer -q sset Master,0 toggle"
 
-exec --no-startup-id volumeicon
-
-# Open file explorer
+# hotkey for file explorer
 bindsym $mod+o exec thunar

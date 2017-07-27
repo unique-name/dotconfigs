@@ -155,6 +155,9 @@ bar {
         tray_output primary
 }
 
+# turn off laptop monitor in case used extern monitor via HDMI
+exec ~/.config/i3/set_monitor.sh 
+
 # Network Manager
 exec --no-startup-id nm-applet
 exec --no-startup-id volumeicon

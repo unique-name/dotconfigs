@@ -8,6 +8,7 @@ set softtabstop=8	"default tab stop size for editing files with other tabs value
 set shiftwidth=8	"the size of an indent 
 set noexpandtab		"no spaces instead tabs
 set wildmenu		"better command line completion, shows a list of matches
+set so=999		"keep cursor centered on the screen
 set laststatus=2	"powerline
 set t_Co=256		"powerline
 set showmatch		"show mutching brackets

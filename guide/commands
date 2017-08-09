@@ -33,6 +33,7 @@ gstreamer:
 gst-launch mfw_v4lsrc ! mfw_v4lsink
 gst-launch mfw_v4lsrc device=/dev/video0 ! ffenc_mpeg4 ! rtpmp4vpay send-config=true ! udpsink host=192.168.42.63 port=5000
 gst-launch-1.0 videotestsrc pattern=1 ! mfw_v4lsink
+gst-launch-1.0 v4l2src device=/dev/video1 ! videocrop top=200 left=70 right=10 bottom=100 ! autovideosink
 
 
 Building Yocto

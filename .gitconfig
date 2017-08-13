@@ -1,6 +1,6 @@
 [user]
 	name = Sergey Buloshnikov
-	email = sergeyx.buloshnikov@intel.com
+	email = sergey.buloshnikov@osrenterprises.com
 
 [color]
 	ui = auto
@@ -33,7 +33,3 @@
 
 [include]
 	path = .gitconfig.local
-
-[review "https://git-amr-3.devtools.intel.com/gerrit"]
-    username = sbuloshx
-

@@ -10,12 +10,8 @@ ext2load mmc 0 0xb0000000 uImage.gz
 ext2load mmc 0 0xb0600000 coh_rd_ext3.dtb
 bootm 0xb0000000 - 0xb0600000
 
-ext2load mmc 0 0xb0000000 uImage.gz; ext2load mmc 0 0xb0600000 coh_rd_ext3.dtb; bootm 0xb0000000 - 0xb0600000
-setenv ipaddr 192.168.6.94; setenv serverip 192.168.6.100; tftpboot 0x80000000 flash_jffs2.bin
+setenv ipaddr 192.168.6.94; setenv serverip 192.168.6.100; tftp 0x80000000 flash_jffs2.bin
 sf update 0x80000000 0 0x10000000
-
-tftpboot 0x80000000 u-boot.bin
-bootcmd=detectboot; run detected_boot
 
 
 dd command
@@ -38,19 +34,17 @@ gst-launch-1.0 v4l2src device=/dev/video1 ! videocrop top=200 left=70 right=10 b
 
 Building Yocto
 --------------
-repo init -u git://git.freescale.com/imx/fsl-arm-yocto-bsp.git -b imx-3.14.52-1.1.0_ga			(imx-4.1.15-1.0.0_ga)
+repo init -u git://git.freescale.com/imx/fsl-arm-yocto-bsp.git -b <branchname>
 repo sync
-MACHINE=imx6ulevk source fsl-setup-release.sh -b build -e x11
+vim yocto/build/conf/bblayers.conf #need to include all layers from sources
+vim yocto/build/local.conf	#need to define default machine like MACHINE=imx6ulevk
 source sources/poky/oe‐init‐build‐env
 bitbake core-image-base
-cd ./tmp/deploy/images/imx6ulevk						-	core-image-base-imx6ulevk.sdcard
-./sources/meta-fsl-bsp-release/imx/meta-bsp/recipes-kernel/linux		-	bb files of linux kernel
-./build/tmp/work-shared/imx6ulevk/kernel-source					-	sources of Kernel
-./build/tmp/work/imx6ulevk-poky-linux-gnueabi/linux-imx/4.1.15-r0/build/arch/arm/boot	-	images of Kernel
+ll ./tmp/deploy/images/imx6ulevk			-	built images
+ll ./build/tmp/work-shared/imx6ulevk/kernel-source	-	sources of Kernel
 
 in local.conf :
-IMAGE_INSTALL ?= " ssh-server-openssh  dhcp-client"
-IMAGE_INSTALL_append = "strace"
+IMAGE_INSTALL_append = " e2fsprogs openssh mtd-utils kernel-modules strace dhcp-client "
 
 
 Disable auto-opening nautilus window after auto-mount
@@ -68,71 +62,38 @@ repo forall -vc "git reset --hard; git clean -df"
 
 WORKING WITH SD PARTITIONS
 --------------------------
-sudo dd if=/dev/zero of=~/intel-po/sdk/coh/binaries/sd.img bs=1M count=400
+sudo dd if=/dev/zero of=~/rootfs.img bs=1M count=400
 
-sudo sfdisk -uM ~/intel-po/sdk/coh/binaries/sd.img 2>/dev/null << EOF
-,7
+sudo sfdisk ~/rootfs.img 1>/dev/null << END
+,7M
 ;
-EOF
+END
 
+device=`losetup -f` #option to obtain free loop device
 sudo losetup -o 512 /dev/loop1 ~/intel-po/sdk/coh/binaries/sd.img
 sudo losetup -o 8225280 /dev/loop2 ~/intel-po/sdk/coh/binaries/sd.img
-sudo mkfs.ext2 /dev/loop1
-sudo mkfs.ext3 /dev/loop2
-sudo mount /dev/loop1 /home/serge/work/mnt-dir
-sudo mount /dev/loop2 /home/serge/work/mnt-dir
+yes | sudo mkfs.ext3 /dev/loop1
+yes | sudo mkfs.ext4 /dev/loop2
+sudo mount /dev/loop1 /home/serge/work/mnt-dir1
+sudo mount /dev/loop2 /home/serge/work/mnt-dir2
 
 sudo tar -xf /home/serge/work/rootfs.tar.gz -C /home/serge/work/mnt-dir
-sudo parted ~/intel-sdk/sdk/coh/binaries/sd.img unit s print
+parted ~/intel-sdk/sdk/coh/binaries/sd.img print	#show disk info
+fdisk -lu ~/intel-sdk/sdk/coh/binaries/sd.img		#show disk info
 sudo losetup -d /dev/loop1
 sudo losetup -d /dev/loop2
-sudo umount /home/serge/work/mnt-dir
+sudo umount /home/serge/work/mnt-dir*
 
 
 JFFS2 Filesystem Support
 ------------------------
-Erase the flash to mount JFFS2 filesystem:
 flash_eraseall -j /dev/mtd0
-
-Mount the serial flash:
-$mount -t jffs2 /dev/mtdblock01 /mnt/nor
-
-Create a new file:
-$echo NewFileCreated > /mnt/nor/testfile.txt
-
-Read the file:
-$cat /mnt/nor/testfile.txt
-
-Delete the file:
-$rm /mnt/nor/testfile.txt
+mount -t jffs2 /dev/mtdblock01 /mnt/nor
 
 
-TEMP CHANGES
--------------------------------------------------------------------
-ssh lab_cvgv@cvg-sv-h064.iil.intel.com
-SVcore2@
-cd ~/coh_sw-farm_tools/power_ctl
-
+Execute command via ssh without entering password
+--------------------------------------------------
 sshpass -p "123" ssh -o "StrictHostKeyChecking no" -t serge@192.168.6.236 sudo reboot
-
-repo init -u ssh://git-ger-8.devtools.intel.com:29418/cvg_sw-cvg_sw-cvg_manifest -b master -m coh-sdk-devel.xml
-repo init -u ssh://git-ger-8.devtools.intel.com:29418/cvg_sw-cvg_sw-cvg_manifest -m coh-sdk-devel.xml -b coh_sdk_0.8_po
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

@@ -180,3 +180,6 @@ bindsym XF86AudioMute exec "amixer -q sset Master,0 toggle"
 
 # hotkey for file explorer
 bindsym $mod+o exec thunar
+
+# calendar
+bindsym $mod+c exec gsimplecal

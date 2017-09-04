@@ -4,8 +4,12 @@
 #gsettings set org.gnome.desktop.background show-desktop-icons false
 
 sudo apt-get -y install i3 i3status volumeicon-alsa
-sudo apt-get -y install thunar thunar-data gnome-icon-theme-full
+sudo apt-get -y install thunar thunar-data gnome-icon-theme-full gsimplecal
 dir=$PWD
+
+mkdir ~/.config/gsimplecal 2>/dev/null
+echo close_on_unfocus = 1 > ~/.config/gsimplecal/config
+echo show_week_numbers = 1 >> ~/.config/gsimplecal/config
 
 if [ ! -d "~/.config/i3" ]; then
 	mkdir ~/.config/i3 2>/dev/null

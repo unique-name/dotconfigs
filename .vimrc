@@ -1,6 +1,6 @@
 set number
 set noswapfile
-"choose one of the following colorschemes: monokai wombat256
+"choose one of the following colorschemes. Default: wombat256
 colorscheme wombat256 
 filetype plugin indent on
 set tabstop=8		"show existing tab measured in spaces 

@@ -4,7 +4,7 @@ dir=$PWD
 #list of files to make symlink to them:
 files=".bash_aliases .gitconfig .vimrc .vim"
 
-#installing additional features:
+#installing vundle manager
 if [ ! -d "$dir/.vim/bundle/vundle" ]; then
 	echo "Installing vundle for vim"
 	git clone https://github.com/gmarik/vundle.git .vim/bundle/vundle 1>/dev/null
@@ -15,14 +15,32 @@ for file in $files; do
 	ln -s $dir/$file ~/$file 2>/dev/null
 done
 
-echo Installing vim powerline plugin 
-pip install --user git+git://github.com/Lokaltog/powerline
+#installing additional features:
+echo Installing vim Powerline plugin. Please wait... 
+pip install --user git+git://github.com/Lokaltog/powerline 1>/dev/null
+wget https://github.com/Lokaltog/powerline/raw/develop/font/PowerlineSymbols.otf https://github.com/Lokaltog/powerline/raw/develop/font/10-powerline-symbols.conf 2>/dev/null
 
-pip install --user git+git://github.com/Lokaltog/powerline
-wget https://github.com/Lokaltog/powerline/raw/develop/font/PowerlineSymbols.otf https://github.com/Lokaltog/powerline/raw/develop/font/10-powerline-symbols.conf
+if [ ! $? -eq 0 ]; then 
+	echo Error in Powerline installation! 
+	exit 1
+fi
+
 mkdir -p ~/.fonts/ && mv PowerlineSymbols.otf ~/.fonts/
-fc-cache -vf ~/.fonts
+fc-cache -vf ~/.fonts 1>/dev/null
 mkdir -p ~/.config/fontconfig/conf.d/ && mv 10-powerline-symbols.conf ~/.config/fontconfig/conf.d/
+
+echo Installing vim YouCompleteMe plugin. This will take a time...
+if [ ! -d "$dir/.vim/bundle/YouCompleteMe" ]; then
+	cd $dir/.vim/bundle/
+	git clone https://github.com/Valloric/YouCompleteMe.git 1>/dev/null
+	cd YouCompleteMe
+	git submodule update --init --recursive 1>/dev/null
+	./install.py --clang-completer 1>/dev/null
+	cd $dir
+else 
+	echo YouCompleteMe already installed!
+fi
+
 echo ""
 echo "In vim enter the command: :PluginInstall"
 echo "Finished"

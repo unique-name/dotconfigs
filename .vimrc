@@ -11,8 +11,9 @@ set wildmenu		"better command line completion, shows a list of matches
 set so=999		"keep cursor centered on the screen
 set laststatus=2	"powerline
 set t_Co=256		"powerline
-set showmatch		"show mutching brackets
+set showmatch		"show matching brackets
 set nocompatible	"need for plugins supporting 
+set encoding=utf-8
 
 "turning off before plugins installation
 syntax off
@@ -31,17 +32,23 @@ call vundle#end()
 syntax on
 filetype plugin indent on
 
-"-----------------------
 " NerdTree customization
 " ----------------------
-"autocmd StdinReadPre * let s:std_in=1
-"autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
-"hotkey to expand tree
 map <C-n> :NERDTreeToggle<CR>
 let NERDTreeIgnore=['.*\.o$']
 let NERDTreeIgnore+=['.*\.d$']
 let NERDTreeIgnore+=['.*\~$']
 let NERDTreeIgnore+=['.*\.out$']
 let NERDTreeIgnore+=['.*\.so$', '.*\.a$']
-"Need for powerline
+
+"PowerLine customization
+"-----------------------
 set rtp+=$HOME/.local/lib/python2.7/site-packages/powerline/bindings/vim/
+
+"YouCompleteme customization
+"---------------------------
+let g:ycm_confirm_extra_conf = 0
+"let g:ycm_add_preview_to_completeopt = 0		"preview top window
+"let g:ycm_autoclose_preview_window_after_insertion = 1	"preview top window
+set completeopt-=preview				"disable preview window
+map <C-f> :YcmRestartServer<CR>

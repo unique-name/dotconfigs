@@ -15,6 +15,9 @@ for file in $files; do
 	ln -s $dir/$file ~/$file 2>/dev/null
 done
 
+echo "Creating symlink to diff-so-fancy in /usr/local/bin directory"
+sudo ln -s $dir/diff-so-fancy /usr/local/bin/diff-so-fancy 2>/dev/null
+
 #installing additional features:
 echo Installing vim Powerline plugin. Please wait... 
 pip install --user git+git://github.com/Lokaltog/powerline 1>/dev/null

@@ -15,6 +15,7 @@ set showmatch		"show matching brackets
 set nocompatible	"need for plugins supporting 
 set encoding=utf-8
 
+
 "turning off before plugins installation
 syntax off
 filetype plugin indent off
@@ -31,6 +32,10 @@ call vundle#end()
 "turning on after vundle finished
 syntax on
 filetype plugin indent on
+
+highlight ColorColumn ctermbg=magenta
+call matchadd('ColorColumn', '\%81v', 100)
+
 
 " NerdTree customization
 " ----------------------

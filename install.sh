@@ -12,7 +12,7 @@ sudo apt-get -y install cmake flex bison gperf zip curl gawk gcc-multilib
 sudo apt-get -y install g++-multilib u-boot-tools lzop autoconf automake gnupg
 sudo apt-get -y install module-init-tools realpath openconnect repo python-dev
 sudo apt-get -y install device-tree-compiler icu-devtools autotools-dev expect 
-sudo apt-get -y install exuberant-ctags
+sudo apt-get -y install exuberant-ctags libgnome2-bin
 sudo apt-get -y install zlib1g:i386 libstdc++6:i386 lib32stdc++6 libisl-dev 
 sudo apt-get -y install libsdl1.2-dev libbz2-dev libicu-dev
 

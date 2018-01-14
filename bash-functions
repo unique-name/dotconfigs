@@ -1,0 +1,11 @@
+update() {
+	sudo apt update;
+	sudo apt -y upgrade;
+	sudo apt -y autoclean;
+	sudo apt -y autoremove;
+	echo "Finished update"
+}
+
+#save current work directory
+PROMPT_COMMAND='pwd > "${XDG_RUNTIME_DIR}/.cwd"'
+[[ -f "${XDG_RUNTIME_DIR}/.cwd" ]] && cd "$(< ${XDG_RUNTIME_DIR}/.cwd)"

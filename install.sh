@@ -16,6 +16,12 @@ sudo apt-get -y install exuberant-ctags libgnome2-bin
 sudo apt-get -y install zlib1g:i386 libstdc++6:i386 lib32stdc++6 libisl-dev 
 sudo apt-get -y install libsdl1.2-dev libbz2-dev libicu-dev
 
+#install audio cutters/converters
+#sudo apt -y install audacity sox libsox-fmt-mp3
+
+#install ebook converter
+#sudo apt -y install calibre
+
 #install java
 #sudo add-apt-repository ppa:webupd8team/java
 #sudo apt-get update

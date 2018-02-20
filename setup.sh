@@ -18,6 +18,13 @@ done
 echo "Creating symlink to diff-so-fancy in /usr/local/bin directory"
 sudo ln -s $dir/diff-so-fancy /usr/local/bin/diff-so-fancy 2>/dev/null
 
+if ! grep -Fq "bash-functions" ~/.bashrc; then
+	echo "" >> ~/.bashrc
+	echo "if [ -f ~/dotconfigs/bash-functions ]; then" >> ~/.bashrc
+	echo "  . ~/dotconfigs/bash-functions" >> ~/.bashrc
+	echo "fi" >> ~/.bashrc
+fi
+
 #installing additional features:
 echo Installing vim Powerline plugin. Please wait... 
 pip install --user git+git://github.com/Lokaltog/powerline 1>/dev/null

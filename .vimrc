@@ -33,8 +33,9 @@ call vundle#end()
 syntax on
 filetype plugin indent on
 
+"setting restrict and highlighting for line length exceeding
 highlight ColorColumn ctermbg=magenta
-call matchadd('ColorColumn', '\%81v', 100)
+call matchadd('ColorColumn', '\%101v', 100)
 
 
 " NerdTree customization

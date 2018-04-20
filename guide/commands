@@ -96,9 +96,12 @@ Execute command via ssh without entering password
 sshpass -p "123" ssh -o "StrictHostKeyChecking no" -t serge@192.168.6.236 sudo reboot
 
 
-Cutting audiofiles with Sox
+Edit audiofiles with Sox
 ---------------------------
+Cut file:            bitrate                start point  length 
 sox source_file.mp3 -C 192 cutted_file.mp3 trim 2:55 270
+Amplify volume: multiplier bitrate
+sox -v 1.9 in.wav -C 192 out.mp3
 
 
 Convert ebooks to pdf and backward with calibre

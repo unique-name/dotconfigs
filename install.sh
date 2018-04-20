@@ -3,7 +3,7 @@
 sudo apt-get update
 sudo apt-get upgrade
 sudo apt autoremove
-sudo apt-get -y install ssh meld ubuntu-restricted-extras texinfo python-pip
+sudo apt-get -y install ssh meld ubuntu-restricted-extras texinfo python-pip net-tools
 sudo apt-get -y install scolordiff ntfs-config libboost-all-dev unzip zip socat
 sudo apt-get -y install build-essential vlc vim-gnome vim-nox openssh-server
 sudo apt-get -y install gedit-plugins git gitk minicom diffstat chrpath ccache
@@ -17,7 +17,7 @@ sudo apt-get -y install zlib1g:i386 libstdc++6:i386 lib32stdc++6 libisl-dev
 sudo apt-get -y install libsdl1.2-dev libbz2-dev libicu-dev
 
 #install audio cutters/converters
-#sudo apt -y install audacity sox libsox-fmt-mp3
+#sudo apt -y install sox libsox-fmt-mp3
 
 #install ebook converter
 #sudo apt -y install calibre

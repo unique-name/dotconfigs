@@ -4,7 +4,7 @@
 #gsettings set org.gnome.desktop.background show-desktop-icons false
 
 sudo apt-get -y install i3 i3status volumeicon-alsa
-sudo apt-get -y install thunar thunar-data gnome-icon-theme-full gsimplecal
+sudo apt-get -y install thunar thunar-data gnome-icon-theme gsimplecal
 dir=$PWD
 
 mkdir ~/.config/gsimplecal 2>/dev/null

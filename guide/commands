@@ -98,10 +98,11 @@ sshpass -p "123" ssh -o "StrictHostKeyChecking no" -t serge@192.168.6.236 sudo r
 
 Edit audiofiles with Sox
 ---------------------------
+sox --i <source_file.mp3>  -  shows information about the file
 Cut file:            bitrate                start point  length 
-sox source_file.mp3 -C 192 cutted_file.mp3 trim 2:55 270
+sox <source_file.mp3> -C 192 <new_file.mp3> trim 2:55 270
 Amplify volume: multiplier bitrate
-sox -v 1.9 in.wav -C 192 out.mp3
+sox -v 1.9 <in.wav> -C 192 <out.mp3>
 
 
 Convert ebooks to pdf and backward with calibre

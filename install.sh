@@ -1,7 +1,7 @@
 #!/bin/bash
    
-sudo apt-get update
-sudo apt-get upgrade
+sudo apt update
+sudo apt upgrade
 sudo apt autoremove
 sudo apt-get -y install ssh meld ubuntu-restricted-extras texinfo python-pip net-tools
 sudo apt-get -y install scolordiff ntfs-config libboost-all-dev unzip zip socat
@@ -16,13 +16,16 @@ sudo apt-get -y install exuberant-ctags libgnome2-bin
 #sudo apt-get -y install zlib1g:i386 libstdc++6:i386 lib32stdc++6 libisl-dev
 #sudo apt-get -y install libsdl1.2-dev libbz2-dev libicu-dev
 
-#install audio cutters/converters
+# install android tools
+#sudo apt -y install android-tools-adb android-tools-fastboot
+
+# install audio cutters/converters
 #sudo apt -y install sox libsox-fmt-mp3
 
-#install ebook converter
+# install ebook converter
 #sudo apt -y install calibre
 
-#install java
+# install java
 #sudo add-apt-repository ppa:webupd8team/java
 #sudo apt-get update
 #sudo apt-get -y install oracle-java7-installer

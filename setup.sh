@@ -27,6 +27,7 @@ fi
 
 #installing additional features:
 echo Installing vim Powerline plugin. Please wait... 
+pip install --upgrade pip
 pip install --user git+git://github.com/Lokaltog/powerline 1>/dev/null
 wget https://github.com/Lokaltog/powerline/raw/develop/font/PowerlineSymbols.otf https://github.com/Lokaltog/powerline/raw/develop/font/10-powerline-symbols.conf 2>/dev/null
 

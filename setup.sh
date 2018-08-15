@@ -12,11 +12,11 @@ fi
 
 for file in $files; do
 	echo "Creating symlink to $file in user's home directory"
-	ln -s $dir/$file ~/$file 2>/dev/null
+	ln -fs $dir/$file ~/$file 2>/dev/null
 done
 
 echo "Creating symlink to diff-so-fancy in /usr/local/bin directory"
-sudo ln -s $dir/diff-so-fancy /usr/local/bin/diff-so-fancy 2>/dev/null
+sudo ln -fs $dir/diff-so-fancy /usr/local/bin/diff-so-fancy 2>/dev/null
 
 if ! grep -Fq "bash-functions" ~/.bashrc; then
 	echo "" >> ~/.bashrc
@@ -27,7 +27,7 @@ fi
 
 #installing additional features:
 echo Installing vim Powerline plugin. Please wait... 
-pip install --upgrade pip
+pip install --user --upgrade pip
 pip install --user git+git://github.com/Lokaltog/powerline 1>/dev/null
 wget https://github.com/Lokaltog/powerline/raw/develop/font/PowerlineSymbols.otf https://github.com/Lokaltog/powerline/raw/develop/font/10-powerline-symbols.conf 2>/dev/null
 

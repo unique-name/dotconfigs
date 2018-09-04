@@ -12,8 +12,8 @@ sudo apt-get -y install gedit-plugins gitk minicom ccache
 sudo apt -y install gawk wget git-core diffstat unzip texinfo gcc-multilib build-essential \
 	chrpath socat xterm cpio python3 python3-pip libsdl1.2-dev libelf-dev
 
-sudo apt -y install libssl-dev subversion libtool gparted ncurses-dev libicu-dev
-sudo apt -y install g++-multilib cmake bison flex zip curl repo
+sudo apt -y install libssl-dev subversion libtool gparted libncurses5-dev libncursesw5-dev
+sudo apt -y install g++-multilib cmake bison flex zip curl repo libicu-dev
 
 # Packages for uboot development
 sudo apt -y install u-boot-tools lzop autoconf automake gnupg module-init-tools realpath \

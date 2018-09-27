@@ -4,7 +4,7 @@ sudo apt update
 sudo apt -y upgrade
 sudo apt -y autoremove
 sudo apt -y install ssh meld ubuntu-restricted-extras python-pip python-dev net-tools
-sudo apt -y install scolordiff ntfs-config libboost-all-dev zip
+sudo apt -y install scolordiff ntfs-config libboost-dev libboost-all-dev zip
 sudo apt -y install vlc vim-gnome vim-nox openssh-server exuberant-ctags libgnome2-bin
 sudo apt-get -y install gedit-plugins gitk minicom ccache
 

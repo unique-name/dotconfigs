@@ -23,6 +23,9 @@ if ! grep -Fq "bash-functions" ~/.bashrc; then
 	echo "if [ -f ~/dotconfigs/bash-functions ]; then" >> ~/.bashrc
 	echo "  . ~/dotconfigs/bash-functions" >> ~/.bashrc
 	echo "fi" >> ~/.bashrc
+	# Adding dirtrim by the way
+	echo "" >> ~/.bashrc
+	echo "PROMPT_DIRTRIM=2"
 fi
 
 #installing additional features:
@@ -43,7 +46,7 @@ mkdir -p ~/.config/fontconfig/conf.d/ && mv 10-powerline-symbols.conf ~/.config/
 echo Installing vim YouCompleteMe plugin. This will take a time...
 if [ ! -d "$dir/.vim/bundle/YouCompleteMe" ]; then
 	cd $dir/.vim/bundle/
-	git clone https://github.com/Valloric/YouCompleteMe.git 1>/dev/null
+	git clone --quiet https://github.com/Valloric/YouCompleteMe.git
 	cd YouCompleteMe
 	git submodule update --init --recursive 1>/dev/null
 	./install.py --clang-completer 1>/dev/null
@@ -54,4 +57,5 @@ fi
 
 echo ""
 echo "In vim enter the command: :PluginInstall"
+echo "If you don't see vim Powerlane - restart your PC"
 echo "Finished"

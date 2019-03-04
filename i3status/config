@@ -9,6 +9,7 @@
 general {
         colors = true
         interval = 1
+	color_good = '#2BD46E'
 }
 
 order += "disk /"
@@ -29,7 +30,7 @@ ipv6 {
 }
 
 wireless _first_ {
-        format_up = "WiFi: (%quality at %essid) %ip"
+        format_up = "WiFi: (%quality at %essid ) %ip"
         format_down = "WiFi: Down"
 }
 
@@ -40,7 +41,8 @@ ethernet _first_ {
 }
 
 battery 0 {
-        format = "Battery: %status %percentage"
+        format = "🔋%status %percentage"
+	integer_battery_capacity = true
 }
 
 run_watch DHCP {
@@ -56,7 +58,7 @@ tztime local {
 }
 
 load {
-        format = "%1min"
+        format = "CPU Load: %1min"
 }
 
 disk "/" {
@@ -68,9 +70,8 @@ disk "/home" {
 }
 
 volume master {
-        format = "♪: %volume"
-        format_muted = "♪: %volume"
-        #device = "pulse:1"
+        format = "🔊: %volume"
+        format_muted = "🔇 %volume"
         device = "default"
 	mixer = "Master"	
 }

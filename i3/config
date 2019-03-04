@@ -151,16 +151,17 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 bar {
-        status_command i3status
-        tray_output primary
+	status_command i3status
+	tray_output primary
+	wheel_up_cmd exec --no-startup-id pactl set-sink-volume 0 +2% #increase sound volume
+	wheel_down_cmd exec --no-startup-id pactl set-sink-volume 0 -2% #decrease sound volume
 }
 
 # turn off laptop monitor in case used extern monitor via HDMI
 exec ~/.config/i3/set_monitor.sh 
 
-# Network Manager
-exec --no-startup-id nm-applet
-exec --no-startup-id volumeicon
+#exec --no-startup-id volumeicon
+#exec --no-startup-id nm-applet #network manager
 
 # Language
 exec --no-startup-id "setxkbmap -option grp:switch,grp:alt_shift_toggle us,il,ru"
@@ -170,13 +171,13 @@ for_window [instance="gparted"] floating enable
 for_window [instance="nautilus"] floating enable
 for_window [instance="unity-control-center"] floating enable
 
-# Pulse Audio controls
-#bindsym $mod+Mod1+Up exec --no-startup-id pactl set-sink-volume 0 +5% #increase sound volume
-#bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5% #decrease sound volume
-#bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle # mute sound
-bindsym XF86AudioRaiseVolume exec "amixer -q sset Master,0 1+ unmute"
-bindsym XF86AudioLowerVolume exec "amixer -q sset Master,0 1- unmute"
-bindsym XF86AudioMute exec "amixer -q sset Master,0 toggle"
+# audio controls
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +2% #increase sound volume
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -2% #decrease sound volume
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle # mute sound
+#bindsym XF86AudioRaiseVolume exec "amixer -q sset Master,0 2+ unmute"
+#bindsym XF86AudioLowerVolume exec "amixer -q sset Master,0 2- unmute"
+#bindsym XF86AudioMute exec "amixer -q sset Master,0 toggle"
 
 # hotkey for file explorer
 bindsym $mod+o exec thunar

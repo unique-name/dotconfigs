@@ -16,7 +16,7 @@ sudo apt -y install libssl-dev subversion libtool gparted libncurses5-dev libncu
 sudo apt -y install g++-multilib cmake bison flex curl repo libicu-dev
 
 # Packages for uboot development
-sudo apt -y install u-boot-tools lzop autoconf automake gnupg module-init-tools realpath \
+sudo apt -y install u-boot-tools lzop autoconf automake gnupg module-init-tools \
 	openconnect device-tree-compiler icu-devtools autotools-dev expect
 
 # install android tools

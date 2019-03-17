@@ -3,8 +3,8 @@
 #disable the nautilus desktop window
 #gsettings set org.gnome.desktop.background show-desktop-icons false
 
-sudo apt-get -y install i3 i3status volumeicon-alsa
-sudo apt-get -y install thunar thunar-data gnome-icon-theme
+sudo apt -y install i3 i3status
+sudo apt -y install thunar thunar-data gnome-icon-theme
 dir=$PWD
 
 if [ ! -d "~/.config/i3" ]; then

@@ -3,17 +3,17 @@
 sudo apt update
 sudo apt -y upgrade
 sudo apt -y autoremove
-sudo apt -y install ssh meld ubuntu-restricted-extras python-pip python-dev net-tools
-sudo apt -y install scolordiff ntfs-config libboost-dev libboost-all-dev zip
+sudo apt -y install ssh meld ubuntu-restricted-extras python-pip python-dev
+sudo apt -y install colordiff ntfs-config libboost-dev libboost-all-dev zip
 sudo apt -y install vlc vim-gnome vim-nox openssh-server exuberant-ctags libgnome2-bin
-sudo apt-get -y install gedit-plugins gitk minicom ccache
+sudo apt -y install gedit-plugins gitk minicom ccache
 
 # Packages for Yocto host development
 sudo apt -y install gawk wget git-core diffstat unzip texinfo gcc-multilib build-essential \
 	chrpath socat xterm cpio python3 python3-pip libsdl1.2-dev libelf-dev
 
 sudo apt -y install libssl-dev subversion libtool gparted libncurses5-dev libncursesw5-dev
-sudo apt -y install g++-multilib cmake bison flex zip curl repo libicu-dev
+sudo apt -y install g++-multilib cmake bison flex curl repo libicu-dev
 
 # Packages for uboot development
 sudo apt -y install u-boot-tools lzop autoconf automake gnupg module-init-tools realpath \

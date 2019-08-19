@@ -3,8 +3,8 @@
 sudo apt update
 sudo apt -y upgrade
 sudo apt -y autoremove
-sudo apt -y install ssh meld ubuntu-restricted-extras python-pip python-dev
-sudo apt -y install colordiff ntfs-config libboost-dev libboost-all-dev zip
+sudo apt -y install ssh meld ubuntu-restricted-extras python-pip python-dev libjsoncpp-dev
+sudo apt -y install colordiff ntfs-config libboost-dev libboost-all-dev libpcap-dev zip
 sudo apt -y install vlc vim-gnome vim-nox openssh-server exuberant-ctags libgnome2-bin
 sudo apt -y install gedit-plugins gitk minicom ccache
 

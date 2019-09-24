@@ -1,6 +1,6 @@
 [user]
-	name = Sergey Buloshnikov
-	email = sergey.buloshnikov@osrenterprises.com
+	name = sergeybu
+	email = sergeybu@essence-org.com
 
 [color]
 	ui = auto
@@ -11,7 +11,7 @@
 	pager = diff-so-fancy | less --tabs=4 -RFX
 
 [push]
-	default = current
+	default = simple
 
 [diff]
 	tool = vimdiff

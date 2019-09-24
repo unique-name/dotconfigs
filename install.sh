@@ -13,11 +13,10 @@ sudo apt -y install gawk wget git-core diffstat unzip texinfo gcc-multilib build
 	chrpath socat xterm cpio python3 python3-pip libsdl1.2-dev libelf-dev
 
 sudo apt -y install libssl-dev subversion libtool gparted libncurses5-dev libncursesw5-dev
-sudo apt -y install g++-multilib cmake bison flex curl repo libicu-dev
+sudo apt -y install g++-multilib cmake bison flex curl repo libicu-dev autoconf automake autotools-dev
 
 # Packages for uboot development
-sudo apt -y install u-boot-tools lzop autoconf automake gnupg module-init-tools \
-	openconnect device-tree-compiler icu-devtools autotools-dev expect
+#sudo apt -y install u-boot-tools lzop gnupg module-init-tools openconnect device-tree-compiler icu-devtools expect
 
 # install android tools
 #sudo apt -y install android-tools-adb android-tools-fastboot

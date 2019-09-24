@@ -25,28 +25,23 @@ if ! grep -Fq "bash-functions" ~/.bashrc; then
 	echo "fi" >> ~/.bashrc
 	# Adding dirtrim by the way
 	echo "" >> ~/.bashrc
-	echo "PROMPT_DIRTRIM=2"
+	echo "PROMPT_DIRTRIM=2" >> ~/.bashrc
 fi
 
-#installing additional features:
 echo Installing vim Powerline plugin. Please wait... 
-pip install --user --upgrade pip
-pip install --user git+git://github.com/Lokaltog/powerline 1>/dev/null
-wget https://github.com/Lokaltog/powerline/raw/develop/font/PowerlineSymbols.otf https://github.com/Lokaltog/powerline/raw/develop/font/10-powerline-symbols.conf 2>/dev/null
+sudo apt install -y python3-pip
+pip3 install -U pip
+pip3 install powerline-status
 
 if [ ! $? -eq 0 ]; then 
 	echo Error in Powerline installation! 
 	exit 1
 fi
 
-mkdir -p ~/.fonts/ && mv PowerlineSymbols.otf ~/.fonts/
-fc-cache -vf ~/.fonts 1>/dev/null
-mkdir -p ~/.config/fontconfig/conf.d/ && mv 10-powerline-symbols.conf ~/.config/fontconfig/conf.d/
-
 echo Installing vim YouCompleteMe plugin. This will take a time...
 if [ ! -d "$dir/.vim/bundle/YouCompleteMe" ]; then
 	cd $dir/.vim/bundle/
-	git clone --quiet https://github.com/Valloric/YouCompleteMe.git
+	git clone --quiet https://github.com/Valloric/YouCompleteMe.git 1>/dev/null
 	cd YouCompleteMe
 	git submodule update --init --recursive 1>/dev/null
 	./install.py --clang-completer 1>/dev/null
@@ -57,5 +52,4 @@ fi
 
 echo ""
 echo "In vim enter the command: :PluginInstall"
-echo "If you don't see vim Powerlane - restart your PC"
 echo "Finished"

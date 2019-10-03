@@ -162,7 +162,8 @@ exec ~/.config/i3/set_monitor.sh
 #exec --no-startup-id nm-applet #network manager
 
 # Language
-exec --no-startup-id "setxkbmap -option grp:switch,grp:alt_shift_toggle us,il,ru"
+exec --no-startup-id setxkbmap -layout us,il,ru
+exec --no-startup-id setxkbmap -option grp:alt_shift_toggle
 
 for_window [instance="thunar"] floating enable
 for_window [instance="gparted"] floating enable

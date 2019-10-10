@@ -1,6 +1,9 @@
 [user]
 	name = sergeybu
-	email = sergeybu@essence-org.com
+	email = sergeybu@essence-grp.com
+
+[credential]
+	helper = cache
 
 [color]
 	ui = auto

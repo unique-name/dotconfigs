@@ -16,6 +16,9 @@
 [push]
 	default = simple
 
+[pull]
+	default = simple
+
 [diff]
 	tool = vimdiff
 

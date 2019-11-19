@@ -9,3 +9,5 @@ update() {
 #save current work directory
 PROMPT_COMMAND='pwd > "${XDG_RUNTIME_DIR}/.cwd"'
 [[ -f "${XDG_RUNTIME_DIR}/.cwd" ]] && cd "$(< ${XDG_RUNTIME_DIR}/.cwd)"
+
+bind "set completion-ignore-case on"

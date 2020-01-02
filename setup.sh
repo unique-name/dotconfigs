@@ -28,16 +28,6 @@ if ! grep -Fq "bash-functions" ~/.bashrc; then
 	echo "PROMPT_DIRTRIM=2" >> ~/.bashrc
 fi
 
-echo Installing vim Powerline plugin. Please wait... 
-sudo apt install -y python3-pip
-pip3 install -U pip
-pip3 install powerline-status
-
-if [ ! $? -eq 0 ]; then 
-	echo Error in Powerline installation! 
-	exit 1
-fi
-
 echo Installing vim YouCompleteMe plugin. This will take a time...
 if [ ! -d "$dir/.vim/bundle/YouCompleteMe" ]; then
 	cd $dir/.vim/bundle/

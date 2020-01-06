@@ -14,10 +14,20 @@ set rtp+=/usr/local/lib/python3.6/dist-packages/powerline/bindings/vim
 set laststatus=2	"airline
 let airline_theme='powerlineish'
 let airline_powerline_fonts = 1
+let g:airline_extensions = []
 set t_Co=256
 set showmatch		"show matching brackets
 set nocompatible	"need for plugins supporting 
 set encoding=utf-8
+
+if &diff
+	syntax off
+	"colorscheme industry
+	colorscheme wombat256
+	set nonumber
+	set softtabstop=4
+	set tabstop=4
+endif
 
 "turning off before plugins installation
 syntax off

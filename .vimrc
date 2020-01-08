@@ -10,7 +10,6 @@ set shiftwidth=8	"the size of an indent
 set noexpandtab		"no spaces instead tabs
 set wildmenu		"better command line completion, shows a list of matches
 set so=999		"keep cursor centered on the screen
-set rtp+=/usr/local/lib/python3.6/dist-packages/powerline/bindings/vim
 set laststatus=2	"airline
 let airline_theme='powerlineish'
 let airline_powerline_fonts = 1

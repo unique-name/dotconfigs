@@ -6,7 +6,7 @@ sudo apt -y autoremove
 sudo apt -y install ssh meld ubuntu-restricted-extras libjsoncpp-dev gedit-plugins gitk minicom
 sudo apt -y install colordiff ntfs-config libboost-dev libboost-all-dev libpcap-dev zip ccache
 sudo apt -y install vlc vim-gnome vim-nox openssh-server exuberant-ctags libgnome2-bin autotools-dev
-sudo apt -y install libssl-dev subversion libtool gparted libncurses5-dev libncursesw5-dev
+sudo apt -y install libssl-dev subversion libtool gparted libncurses5-dev libncursesw5-dev thunar
 sudo apt -y install g++-multilib cmake bison flex curl repo libicu-dev autoconf automake
 
 # Packages for Yocto host development

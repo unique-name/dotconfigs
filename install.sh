@@ -26,3 +26,5 @@ sudo apt -y install android-tools-adb android-tools-fastboot
 # install ebook converter
 #sudo apt -y install calibre
 
+#insatll audio converter
+#sudo apt install sox libsox-fmt-mp3

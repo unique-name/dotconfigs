@@ -1,6 +1,6 @@
 alias f='find . -name'
 alias cd..='cd ..'
-alias control='sudo unity-control-center && fg'
+alias control='sudo gnome-control-center && fg'
 alias diff='colordiff'
 alias size='sudo du -h --max-depth=1'
 alias g='grep -rn'

@@ -18,6 +18,8 @@ set t_Co=256
 set showmatch		"show matching brackets
 set nocompatible	"need for plugins supporting 
 set encoding=utf-8
+let rainbow_active = 1
+let rainbow_ctermfgs = ['blue']
 
 if &diff
 	syntax off
@@ -38,6 +40,8 @@ call vundle#begin()
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
+Plugin 'jiangmiao/auto-pairs'
+Plugin 'frazrepo/vim-rainbow'
 
 "all plugins must be added before this line
 call vundle#end() 

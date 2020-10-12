@@ -26,8 +26,6 @@ if ! grep -Fq "bash-functions" ~/.bashrc; then
 	# Adding dirtrim by the way
 	echo "" >> ~/.bashrc
 	echo "PROMPT_DIRTRIM=2" >> ~/.bashrc
-	# Adding workaround of library loading error
-	echo "export LD_PRELOAD=/usr/lib/x86_64-linux-gnu/libgtk3-nocsd.so.0" >> ~/.bashrc
 fi
 
 echo -e "\nInstalling vim YouCompleteMe plugin. This will take a while..."

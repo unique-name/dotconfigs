@@ -55,6 +55,7 @@ call matchadd('ColorColumn', '\%101v', 100)
 
 "YouCompleteme customization
 "---------------------------
-let g:ycm_confirm_extra_conf = 0
-set completeopt-=preview		"disable preview window
+let ycm_confirm_extra_conf = 0
+let ycm_auto_hover = ''		"disable preview pop up window
 map <C-f> :YcmRestartServer<CR>
+

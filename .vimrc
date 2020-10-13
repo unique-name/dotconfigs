@@ -37,7 +37,7 @@ set rtp+=~/.vim/bundle/vundle/
 "installs plugins from list below
 call vundle#begin()
 
-Plugin 'Valloric/YouCompleteMe'
+Plugin 'ycm-core/YouCompleteMe'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'jiangmiao/auto-pairs'

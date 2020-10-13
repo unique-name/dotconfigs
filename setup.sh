@@ -1,19 +1,20 @@
 #!/bin/bash
 
 dir=$PWD
+
 #list of files to make symlink to them:
 files=".bash_aliases .gitconfig .vimrc .vim"
-
-#installing vundle manager
-if [ ! -d "$dir/.vim/bundle/vundle" ]; then
-	echo "Installing vundle for vim"
-	git clone https://github.com/gmarik/vundle.git .vim/bundle/vundle 1>/dev/null
-fi
 
 for file in $files; do
 	echo "Creating symlink to $file in user's home directory"
 	ln -fs $dir/$file ~/$file 2>/dev/null
 done
+
+#installing vundle package manager for vim
+if [ ! -d "$dir/.vim/bundle/vundle" ]; then
+	echo "Installing vundle for vim"
+	git clone https://github.com/gmarik/vundle.git .vim/bundle/vundle 1>/dev/null
+fi
 
 echo "Creating symlink to diff-so-fancy in /usr/local/bin directory"
 sudo ln -fs $dir/diff-so-fancy /usr/local/bin/diff-so-fancy 2>/dev/null
@@ -31,7 +32,7 @@ fi
 echo -e "\nInstalling vim YouCompleteMe plugin. This will take a while..."
 if [ ! -d "$dir/.vim/bundle/YouCompleteMe" ]; then
 	cd $dir/.vim/bundle/
-	git clone --quiet https://github.com/Valloric/YouCompleteMe.git 1>/dev/null
+	git clone https://github.com/ycm-core/YouCompleteMe.git 1>/dev/null
 	cd YouCompleteMe
 	git submodule update --init --recursive 1>/dev/null
 	./install.py --clang-completer 1>/dev/null

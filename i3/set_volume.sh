@@ -1,11 +1,10 @@
 #!/bin/bash
 
 sink=$(pactl list short sinks | awk '{print $1;}')
-level="+0%"
 
 case "$1" in
-	up ) level="+2%" ;;
-	down ) level="-2%" ;;
+	up ) pactl set-sink-volume $sink +2% ;;
+	down ) pactl set-sink-volume $sink -2% ;;
+	mute ) pactl set-sink-mute $sink toggle ;;
 esac
 
-pactl set-sink-volume $sink $level

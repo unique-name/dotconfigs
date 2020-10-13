@@ -167,6 +167,11 @@ for_window [instance="nautilus"] floating enable
 for_window [instance="calculator"] floating enable
 for_window [instance="gnome-control-center"] floating enable
 
+# audio controls from keyboard
+bindsym XF86AudioRaiseVolume exec --no-startup-id "~/.config/i3/set_volume.sh up"
+bindsym XF86AudioLowerVolume exec --no-startup-id "~/.config/i3/set_volume.sh down"
+bindsym XF86AudioMute exec --no-startup-id "~/.config/i3/set_volume.sh mute"
+
 # hotkey for file explorer
 bindsym $mod+o exec thunar
 

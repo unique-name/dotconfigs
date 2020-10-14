@@ -4,9 +4,9 @@ set number
 
 colorscheme wombat256 
 filetype plugin indent on
-set tabstop=8		"show existing tab measured in spaces 
-set softtabstop=8	"default tab stop size for editing files with other tabs value
-set shiftwidth=8	"the size of an indent 
+set tabstop=6		"show existing tab measured in spaces 
+set softtabstop=6	"default tab stop size for editing files with other tabs value
+set shiftwidth=6	"the size of an indent 
 set noexpandtab		"no spaces instead tabs
 set wildmenu		"better command line completion, shows a list of matches
 set so=999		"keep cursor centered on the screen

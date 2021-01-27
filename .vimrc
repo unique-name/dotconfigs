@@ -49,6 +49,7 @@ Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'jiangmiao/auto-pairs'
 Plugin 'frazrepo/vim-rainbow'
+Plugin 'zivyangll/git-blame.vim'
 
 call vundle#end() 
 "turning on after vundle finished

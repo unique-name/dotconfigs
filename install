@@ -13,7 +13,7 @@ sudo apt -y upgrade
 sudo apt -y autoremove
 sudo apt -y install ssh meld ubuntu-restricted-extras gedit-plugins gitk minicom wget unzip zip \
 	colordiff ccache vim openssh-server universal-ctags autotools-dev libssl-dev subversion \
-	libtool gparted thunar cmake flex curl libicu-dev
+	libtool gparted thunar cmake flex curl libicu-dev build-essential
 
 # Boost libray
 #sudo apt -y install libboost-all-dev

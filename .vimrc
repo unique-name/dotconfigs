@@ -14,6 +14,8 @@ set t_Co=256
 set showmatch		"show matching brackets
 set nocompatible		"need for plugins supporting 
 set encoding=utf-8
+set ignorecase
+set smartcase
 let rainbow_active = 1
 let rainbow_ctermfgs = ['blue']
 let AutoPairsMultilineClose = 0

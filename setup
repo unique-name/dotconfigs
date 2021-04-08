@@ -5,6 +5,8 @@ dir=$PWD
 gsettings set org.gnome.desktop.interface show-battery-percentage true
 gsettings set org.gnome.shell.extensions.dash-to-dock click-action 'minimize'
 
+sudo apt install fonts-powerline
+
 #list of files to make symlink to them:
 files=".bash_aliases .gitconfig .vimrc .vim"
 

@@ -117,3 +117,7 @@ Convert ebooks to pdf and backward with calibre
 ebook-convert file.pdf file.epub
 
 
+Download google chrome from terninal
+------------------------------------
+wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+

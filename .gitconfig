@@ -39,6 +39,7 @@
 	b = branch -v
 	l = log --pretty=format:'%C(bold blue) %h %C(reset) %C(green)[%ad]%C(reset) | %C(white)%s %C(dim white)- %an %C(reset)%C(yellow)%d%C(reset)' --graph --date=short
 	a = add -A
+	subup = submodule update --recursive
 
 [include]
 	path = .gitconfig.local

@@ -18,16 +18,18 @@ set encoding=utf-8
 set ignorecase
 set smartcase
 set signcolumn=number
+
+"autopair customization
 let AutoPairsMultilineClose = 0
 
 "rainbow customization
 let rainbow_active = 1
-let g:rainbow_ctermfgs = ['blue']
+let rainbow_ctermfgs = ['lightblue']
 
 "airline customiazation
 set laststatus=2        "airline
 let airline_theme='powerlineish'
-"let airline_extensions = []
+let airline_extensions = []
 
 "coc customization
 inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
@@ -53,3 +55,6 @@ call plug#end()
 "setting restrict and highlighting for line length exceeding
 highlight ColorColumn ctermbg=magenta
 call matchadd('ColorColumn', '\%101v', 100)
+
+"mapped hotkey to toggle showing the line numbers
+map <C-n> :set nu!<CR>

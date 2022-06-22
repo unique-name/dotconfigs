@@ -1,18 +1,19 @@
-set number
-:set noswapfile
 "choose one of the following colorschemes. Default: wombat256
 colorscheme wombat256 
 
-"filetype plugin indent on
-set tabstop=6		"show existing tab measured in spaces 
-set softtabstop=6		"default tab stop size for editing files with other tabs value
-set shiftwidth=6		"the size of an indent 
-set noexpandtab		"no spaces instead tabs
+filetype plugin indent on
+
+:set noswapfile
+set number
+set tabstop=8		"show existing tab measured in spaces 
+set softtabstop=8	"default tab stop size for editing files with other tabs value
+set shiftwidth=8	"the size of an indent 
+set expandtab
 set wildmenu		"better command line completion, shows a list of matches
-set so=999			"keep cursor centered on the screen
+set so=999		"keep cursor centered on the screen
 set t_Co=256
 set showmatch		"show matching brackets
-set nocompatible		"need for plugins supporting 
+set nocompatible	"need for plugins supporting 
 set encoding=utf-8
 set ignorecase
 set smartcase
@@ -62,3 +63,5 @@ filetype plugin indent on
 highlight ColorColumn ctermbg=magenta
 call matchadd('ColorColumn', '\%101v', 100)
 
+"mapped hotkey to toggle showing the line numbers
+map <C-n> :set nu!<CR>

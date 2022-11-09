@@ -37,7 +37,7 @@
 	lg = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(cyan)%ad%C(reset) %C(green)(%ar)%C(reset)%C(yellow)%d%C(reset)%n'' %C(white)%s%C(reset) %C(dim white)- %an%C(reset)' --all
 	s = status --ignore-submodules=all
 	b = branch -v
-	l = log --pretty=format:'%C(bold blue) %h %C(reset) %C(green)[%ad]%C(reset) | %C(white)%s %C(dim white)- %an %C(reset)%C(yellow)%d%C(reset)' --graph --date=short
+	l = log --pretty=format:'%C(bold blue) %h %C(reset) %C(green)[%ad]%C(reset) | %C(white)%s %C(dim white)- %an %C(reset)%C(yellow)%d%C(reset)' --date=short
 	a = add -A
 	subup = submodule update --recursive
 

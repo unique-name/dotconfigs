@@ -17,7 +17,6 @@ set nocompatible		"need for plugins supporting
 set encoding=utf-8
 set ignorecase
 set smartcase
-set signcolumn=number
 
 "autopair customization
 let AutoPairsMultilineClose = 0
@@ -44,7 +43,7 @@ if &diff
 endif
 
 call plug#begin('~/.vim/plugged')
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
+"Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'jiangmiao/auto-pairs'
 Plug 'frazrepo/vim-rainbow'
 Plug 'tpope/vim-fugitive'

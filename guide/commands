@@ -61,6 +61,33 @@ or this:
 repo forall -vc "git reset --hard; git clean -df"
 
 
+ESP32 setup & build
+-------------------
+sudo usermod -aG dialout serge
+newgrp dialout
+git clone --recursive https://github.com/espressif/esp-idf.git
+git checkout v5.5.1
+git submodule update --init --recursive
+
+cd ~/projects/<USER PROJECT DIR>
+~/projects/esp-idf/install.sh esp32s3
+source ~/projects/esp-idf/export.sh
+idf.py set-target esp32s3
+idf.py menuconfig
+idf.py fullclean
+idf.py build
+idf.py -p /dev/ttyACM0 flash
+
+idf.py app
+idf.py -p /dev/ttyACM0 -b 921600 app-flash monitor
+
+
+ESP32 serial connect
+--------------------
+picocom -b 115200 --noreset --noinit /dev/ttyACM0
+idf.py -p /dev/ttyACM0 -b 921600 monitor
+
+
 WORKING WITH SD PARTITIONS
 --------------------------
 sudo dd if=/dev/zero of=~/rootfs.img bs=1M count=400

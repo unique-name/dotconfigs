@@ -11,9 +11,8 @@ set -e
 sudo apt update
 sudo apt -y upgrade
 sudo apt -y autoremove
-sudo apt -y install ssh meld ubuntu-restricted-extras gedit-plugins gitk minicom wget unzip zip \
-	colordiff vim openssh-server \
-	gparted cmake flex curl konsole
+sudo apt -y install ssh meld ubuntu-restricted-extras gedit-plugins minicom wget unzip zip \
+	colordiff vim openssh-server gparted cmake flex curl konsole
 
 # Boost libray
 #sudo apt -y install libboost-all-dev
@@ -23,9 +22,8 @@ sudo apt -y install ssh meld ubuntu-restricted-extras gedit-plugins gitk minicom
 #sudo apt -y install gawk diffstat texinfo g++-multilib gcc-multilib bison chrpath socat xterm \
 #cpio libsdl1.2-dev libelf-dev
 
-# Packages for uboot development
-#sudo apt -y install u-boot-tools lzop gnupg module-init-tools openconnect device-tree-compiler \
-#icu-devtools expect
+# Packages for ESP32 development
+sudo apt -y install git flex bison gperf python3-pip python3-venv ninja-build ccache libffi-dev libssl-dev dfu-util libusb-1.0-0
 
 # install android tools
 #sudo apt -y install android-tools-adb android-tools-fastboot
@@ -34,7 +32,7 @@ sudo apt -y install ssh meld ubuntu-restricted-extras gedit-plugins gitk minicom
 #sudo apt -y install calibre
 
 #insatll video player and codecs
-sudo apt -y install libvulkan1 mesa-vulkan-drivers vulkan-tools mpv
+sudo apt -y install mpv libvulkan1 mesa-vulkan-drivers vulkan-tools 
 
 echo -e "\nInstallation finished\n"
 

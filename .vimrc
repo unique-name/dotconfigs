@@ -5,9 +5,9 @@ filetype plugin indent on
 
 :set noswapfile
 set number
-set tabstop=8		"show existing tab measured in spaces 
-set softtabstop=8	"default tab stop size for editing files with other tabs value
-set shiftwidth=8	"the size of an indent 
+set tabstop=4		"show existing tab measured in spaces 
+set softtabstop=4	"default tab stop size for editing files with other tabs value
+set shiftwidth=4	"the size of an indent 
 set expandtab
 set wildmenu		"better command line completion, shows a list of matches
 set so=999		"keep cursor centered on the screen
@@ -27,10 +27,11 @@ let airline_theme='powerlineish'
 let airline_powerline_fonts = 1
 let airline_extensions = []
 
-"YouCompleteme customization
-let ycm_confirm_extra_conf = 0
-let ycm_auto_hover = ''		"disable preview pop up window
-map <C-f> :YcmRestartServer<CR>
+"mucompleteme customization
+set completeopt=menuone,noselect
+let g:mucomplete#enable_auto_at_startup = 1
+let g:mucomplete#chains = {}
+let g:mucomplete#chains.default = ['keyn', 'tags', 'omni', 'path']
 
 if &diff
 	syntax off
@@ -47,7 +48,7 @@ filetype plugin indent off
 set rtp+=~/.vim/bundle/vundle/
 call vundle#begin()
 
-Plugin 'ycm-core/YouCompleteMe'
+Plugin 'lifepillar/vim-mucomplete'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'jiangmiao/auto-pairs'

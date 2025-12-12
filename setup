@@ -34,17 +34,6 @@ if ! grep -Fq "bash-functions" ~/.bashrc; then
 	echo "PROMPT_DIRTRIM=2" >> ~/.bashrc
 fi
 
-echo -e "\nInstalling vim YouCompleteMe plugin. This will take a while..."
-if [ ! -d "$dir/.vim/bundle/YouCompleteMe" ]; then
-	cd $dir/.vim/bundle/
-	git clone https://github.com/ycm-core/YouCompleteMe.git 1>/dev/null
-	cd YouCompleteMe
-	git submodule update --init --recursive 1>/dev/null
-	./install.py --clang-completer 1>/dev/null
-	cd $dir
-else 
-	echo YouCompleteMe already installed!
-fi
 
 echo -e "\nIn vim enter the command: :PluginInstall"
 echo -e "Finished\n"

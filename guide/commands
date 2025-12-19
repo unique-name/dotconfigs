@@ -48,17 +48,10 @@ in local.conf :
 IMAGE_INSTALL_append = " e2fsprogs openssh mtd-utils kernel-modules strace dhcp-client "
 
 
-Disable auto-opening nautilus window after auto-mount
--------------------------------------------------------
-gsettings set org.gnome.desktop.media-handling automount-open false
-
-
-repo cleanup script
--------------------
-repo forall -p -c 'git clean -fxd'
-repo forall -p -c 'git reset --hard'
-or this:
-repo forall -vc "git reset --hard; git clean -df"
+Check graphic which server X11 or Wayland enabled now 
+=====================================================
+echo $XDG_SESSION_TYPE
+vim /etc/gdm3/custom.conf
 
 
 ESP32 setup & build
@@ -122,26 +115,6 @@ mount -t jffs2 /dev/mtdblock01 /mnt/nor
 Execute command via ssh without entering password
 --------------------------------------------------
 sshpass -p "123" ssh -o "StrictHostKeyChecking no" -t serge@192.168.6.236 sudo reboot
-
-
-Formatting source code according to convention
-----------------------------------------------
-clang-format -i *.cpp
-FYI: Command should be run in directory with the file ".clang-format"
-
-
-Edit audiofiles with Sox
----------------------------
-sox --i <source_file.mp3>  -  shows information about the file
-Cut file:            bitrate                start point  length 
-sox <source_file.mp3> -C 192 <new_file.mp3> trim 2:55 270
-Amplify volume: multiplier bitrate
-sox -v 1.9 <in.wav> -C 192 <out.mp3>
-
-
-Convert ebooks to pdf and backward with calibre
------------------------------------------------
-ebook-convert file.pdf file.epub
 
 
 Download google chrome from terninal

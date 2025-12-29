@@ -1,5 +1,5 @@
 "choose one of the following colorschemes. Default: wombat256
-colorscheme wombat256 
+colorscheme OceanicNext
 
 filetype plugin indent on
 
@@ -35,8 +35,7 @@ let g:mucomplete#chains.default = ['keyn', 'tags', 'omni', 'path']
 
 if &diff
 	syntax off
-	"colorscheme industry
-	colorscheme wombat256
+	colorscheme OceanicNext
 	set nonumber
 	set softtabstop=4
 	set tabstop=4

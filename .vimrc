@@ -27,11 +27,18 @@ let airline_theme='powerlineish'
 let airline_powerline_fonts = 1
 let airline_extensions = []
 
-"mucompleteme customization
-set completeopt=menuone,noselect
-let g:mucomplete#enable_auto_at_startup = 1
-let g:mucomplete#chains = {}
-let g:mucomplete#chains.default = ['keyn', 'tags', 'omni', 'path']
+"asyncomplete customization
+let g:asyncomplete_auto_popup = 1
+let g:asyncomplete_auto_completeopt = 0
+let g:asyncomplete_popup_delay = 100
+let g:asyncomplete_min_chars = 2
+let g:lsp_diagnostics_enabled = 1
+let g:lsp_diagnostics_echo_cursor = 1
+set completeopt=menuone,noinsert,noselect
+inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+inoremap <expr> <CR>  pumvisible() ? "\<C-y>" : "\<CR>"
+inoremap <expr> <Esc> pumvisible() ? "\<C-e>\<Esc>" : "\<Esc>"
 
 if &diff
 	syntax off
@@ -47,7 +54,12 @@ filetype plugin indent off
 set rtp+=~/.vim/bundle/vundle/
 call vundle#begin()
 
-Plugin 'lifepillar/vim-mucomplete'
+Plugin 'VundleVim/Vundle.vim'
+
+Plugin 'prabirshrestha/asyncomplete.vim'
+Plugin 'prabirshrestha/vim-lsp'
+Plugin 'prabirshrestha/asyncomplete-lsp.vim'
+
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'jiangmiao/auto-pairs'
@@ -62,6 +74,17 @@ filetype plugin indent on
 "setting restrict and highlighting for line length exceeding
 highlight ColorColumn ctermbg=magenta
 call matchadd('ColorColumn', '\%101v', 100)
+
+if executable('clangd')
+  augroup lsp_clangd
+    autocmd!
+    autocmd User lsp_setup call lsp#register_server({
+          \ 'name': 'clangd',
+          \ 'cmd': {server_info->['clangd', '--background-index']},
+          \ 'allowlist': ['c', 'cpp'],
+          \ })
+  augroup END
+endif
 
 "mapped hotkey to toggle showing the line numbers
 map <C-n> :set nu!<CR>

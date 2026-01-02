@@ -12,7 +12,7 @@ sudo apt update
 sudo apt -y upgrade
 sudo apt -y autoremove
 sudo apt -y install ssh meld ubuntu-restricted-extras gedit-plugins picocom wget unzip zip \
-	colordiff vim openssh-server gparted cmake flex curl konsole
+	colordiff vim openssh-server gparted cmake flex curl konsole git 
 
 # Boost libray
 #sudo apt -y install libboost-all-dev
@@ -23,7 +23,7 @@ sudo apt -y install ssh meld ubuntu-restricted-extras gedit-plugins picocom wget
 #cpio libsdl1.2-dev libelf-dev
 
 # Packages for ESP32 development
-sudo apt -y install git flex bison gperf python3-pip python3-venv ninja-build ccache libffi-dev libssl-dev dfu-util libusb-1.0-0
+sudo apt -y install flex bison gperf python3-pip python3-venv ninja-build ccache universal-ctags clangd libffi-dev libssl-dev dfu-util libusb-1.0-0
 
 # install android tools
 #sudo apt -y install android-tools-adb android-tools-fastboot

@@ -1,0 +1,20 @@
+CompileFlags:
+  Add:
+    - "--target=x86_64-linux-gnu"
+  Remove:
+    - "-fno-tree-switch-conversion"
+    - "-fstrict-volatile-bitfields"
+    - "-fno-shrink-wrap"
+    - "-mlongcalls"
+    - "--target=xtensa-esp32s3-unknown-elf"
+    - "xtensa-esp32s3-unknown-elf"
+    - "-mtext-section-literals"
+    - "-nostdlib"
+    - "-ffreestanding"
+
+Diagnostics:
+  UnusedIncludes: None
+  ClangTidy:
+    Remove: ["*"]
+  Suppress:
+    - "pp_file_not_found"

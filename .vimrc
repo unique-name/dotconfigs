@@ -23,22 +23,26 @@ let AutoPairsMultilineClose = 0
 
 "airline customiazation
 set laststatus=2		"airline
-let airline_theme='powerlineish'
+let airline_theme='onedark'
 let airline_powerline_fonts = 1
 let airline_extensions = []
 
 "asyncomplete customization
 let g:asyncomplete_auto_popup = 1
 let g:asyncomplete_auto_completeopt = 0
-let g:asyncomplete_popup_delay = 100
+let g:asyncomplete_popup_delay = 200
 let g:asyncomplete_min_chars = 2
-let g:lsp_diagnostics_enabled = 1
+let g:lsp_diagnostics_enabled = 0
 let g:lsp_diagnostics_echo_cursor = 1
+let g:lsp_code_action_enabled = 0
+set signcolumn=no
+
 set completeopt=menuone,noinsert,noselect
 inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 inoremap <expr> <CR>  pumvisible() ? "\<C-y>" : "\<CR>"
 inoremap <expr> <Esc> pumvisible() ? "\<C-e>\<Esc>" : "\<Esc>"
+nnoremap <silent> <C-]> :LspDefinition<CR>
 
 if &diff
 	syntax off

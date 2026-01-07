@@ -15,14 +15,17 @@ for file in $files; do
 	ln -fs $dir/$file ~/$file 2>/dev/null
 done
 
+echo "Creating symlink to diff-so-fancy in /usr/local/bin directory"
+sudo ln -fs $dir/diff-so-fancy /usr/local/bin/diff-so-fancy 2>/dev/null
+echo "Creating symlink to mpv.conf in ~/.config/mpv directory"
+mkdir ip ~/.config/mpv
+ln -fs $dir/mpv-conf/mpv.conf ~/.config/mpv/ 2>/dev/null
+
 #installing vundle package manager for vim
 if [ ! -d "$dir/.vim/bundle/vundle" ]; then
 	echo "Installing vundle for vim"
 	git clone https://github.com/gmarik/vundle.git .vim/bundle/vundle 1>/dev/null
 fi
-
-echo "Creating symlink to diff-so-fancy in /usr/local/bin directory"
-sudo ln -fs $dir/diff-so-fancy /usr/local/bin/diff-so-fancy 2>/dev/null
 
 if ! grep -Fq "bash-functions" ~/.bashrc; then
 	echo "" >> ~/.bashrc

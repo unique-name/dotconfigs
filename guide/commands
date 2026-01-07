@@ -71,6 +71,7 @@ idf.py fullclean
 idf.py build
 idf.py -p /dev/ttyACM0 flash
 
+source ~/projects/esp-idf/export.sh
 idf.py app
 idf.py -p /dev/ttyACM0 -b 921600 app-flash monitor
 

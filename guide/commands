@@ -54,6 +54,11 @@ echo $XDG_SESSION_TYPE
 vim /etc/gdm3/custom.conf
 
 
+Fix QNAP disc acess problem:
+============================
+sudo ntfsfix /dev/sda1
+
+
 ESP32 setup & build
 -------------------
 sudo usermod -aG dialout serge

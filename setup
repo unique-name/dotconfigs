@@ -2,9 +2,6 @@
 
 dir=$PWD
 
-gsettings set org.gnome.desktop.interface show-battery-percentage true
-gsettings set org.gnome.shell.extensions.dash-to-dock click-action 'minimize'
-
 sudo apt install fonts-powerline
 
 #list of files to make symlink to them:
@@ -18,7 +15,7 @@ done
 echo "Creating symlink to diff-so-fancy in /usr/local/bin directory"
 sudo ln -fs $dir/diff-so-fancy /usr/local/bin/diff-so-fancy 2>/dev/null
 echo "Creating symlink to mpv.conf in ~/.config/mpv directory"
-mkdir ip ~/.config/mpv
+mkdir -p ~/.config/mpv
 ln -fs $dir/mpv-conf/mpv.conf ~/.config/mpv/ 2>/dev/null
 
 #installing vundle package manager for vim
